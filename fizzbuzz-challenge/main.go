@@ -15,7 +15,7 @@ func fizzBuzz(n int) {
             fmt.Println("Fizz")
         } else if i%5 == 0 {
             fmt.Println("Buzz")
-
+		
 		// Jika i bukan kelipatan 3 atau 5, cetak nilainya
         } else {
             fmt.Println(i)
@@ -36,6 +36,6 @@ func main() {
 		return
 	}
 
-	// Panggil looping function
+	// Panggil looping function dengan n sebagai parameter
 	fizzBuzz(n)
 }
