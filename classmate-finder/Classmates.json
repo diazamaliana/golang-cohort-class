@@ -1,0 +1,143 @@
+[
+    {
+        "ID": 1,
+        "Name": "Fitri",
+        "Address": "Jl. Merdeka No. 123",
+        "Occupation": "Insinyur",
+        "ReasonToGo": "Suka dengan Go"
+    },
+    {
+        "ID": 2,
+        "Name": "Diaz",
+        "Address": "Jl. Elm No. 456",
+        "Occupation": "Desainer",
+        "ReasonToGo": "Belajar bahasa baru"
+    },
+    {
+        "ID": 3,
+        "Name": "Siti",
+        "Address": "Jl. Raya No. 789",
+        "Occupation": "Pengembang Perangkat Lunak",
+        "ReasonToGo": "Kemudahan penggunaan Go"
+    },
+    {
+        "ID": 4,
+        "Name": "Ahmad",
+        "Address": "Jl. Akses No. 101",
+        "Occupation": "Ilmuwan Data",
+        "ReasonToGo": "Kecepatan Go"
+    },
+    {
+        "ID": 5,
+        "Name": "Rina",
+        "Address": "Jl. Cipta Karya No. 234",
+        "Occupation": "Dosen",
+        "ReasonToGo": "Penggunaan sumber terbuka"
+    },
+    {
+        "ID": 6,
+        "Name": "Budi",
+        "Address": "Jl. Maju Jaya No. 345",
+        "Occupation": "Pengusaha",
+        "ReasonToGo": "Mengembangkan startup"
+    },
+    {
+        "ID": 7,
+        "Name": "Susi",
+        "Address": "Jl. Pintar No. 567",
+        "Occupation": "Analisis Keuangan",
+        "ReasonToGo": "Peningkatan kemampuan kerja"
+    },
+    {
+        "ID": 8,
+        "Name": "Hendra",
+        "Address": "Jl. Sukses No. 678",
+        "Occupation": "Peneliti",
+        "ReasonToGo": "Memperluas pengetahuan teknis"
+    },
+    {
+        "ID": 9,
+        "Name": "Diana",
+        "Address": "Jl. Terang No. 789",
+        "Occupation": "Pengembang Web",
+        "ReasonToGo": "Kemampuan untuk pengembangan web"
+    },
+    {
+        "ID": 10,
+        "Name": "Agus",
+        "Address": "Jl. Masa Depan No. 890",
+        "Occupation": "Programmer",
+        "ReasonToGo": "Kemudahan belajar pemrograman"
+    },
+    {
+        "ID": 11,
+        "Name": "Eka",
+        "Address": "Jl. Sejahtera No. 1234",
+        "Occupation": "Konsultan Bisnis",
+        "ReasonToGo": "Peningkatan peluang karier"
+    },
+    {
+        "ID": 12,
+        "Name": "Rini",
+        "Address": "Jl. Teknologi No. 5678",
+        "Occupation": "Pengembang Aplikasi Mobile",
+        "ReasonToGo": "Mengembangkan aplikasi mobile"
+    },
+    {
+        "ID": 13,
+        "Name": "Joko",
+        "Address": "Jl. Kemajuan No. 3456",
+        "Occupation": "Sistem Analis",
+        "ReasonToGo": "Peningkatan efisiensi sistem"
+    },
+    {
+        "ID": 14,
+        "Name": "Dewi",
+        "Address": "Jl. Berkarya No. 12345",
+        "Occupation": "Data Scientist",
+        "ReasonToGo": "Analisis data yang lebih baik"
+    },
+    {
+        "ID": 15,
+        "Name": "Rudi",
+        "Address": "Jl. Sukses Bersama No. 67890",
+        "Occupation": "Pengajar",
+        "ReasonToGo": "Mendidik generasi muda"
+    },
+    {
+        "ID": 16,
+        "Name": "Tuti",
+        "Address": "Jl. Cita-cita No. 23456",
+        "Occupation": "Pengembang Game",
+        "ReasonToGo": "Membuat game yang inovatif"
+    },
+    {
+        "ID": 17,
+        "Name": "Adi",
+        "Address": "Jl. Inovasi No. 78901",
+        "Occupation": "Administrator Sistem",
+        "ReasonToGo": "Pengelolaan sistem yang lebih baik"
+    },
+    {
+        "ID": 18,
+        "Name": "Mira",
+        "Address": "Jl. Kreatif No. 34567",
+        "Occupation": "Pengembang UI/UX",
+        "ReasonToGo": "Desain pengalaman pengguna yang bagus"
+    },
+    {
+        "ID": 19,
+        "Name": "Arif",
+        "Address": "Jl. Cerdas No. 123456",
+        "Occupation": "Peneliti Keamanan",
+        "ReasonToGo": "Meningkatkan keamanan siber"
+    },
+    {
+        "ID": 20,
+        "Name": "Sari",
+        "Address": "Jl. Terdepan No. 789012",
+        "Occupation": "Analisis Bisnis",
+        "ReasonToGo": "Analisis data untuk pengambilan keputusan"
+    }
+ ]
+ 
