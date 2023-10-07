@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"html/template"
+	"webserver/helpers"
 )
 
 // Data statis pengguna
@@ -49,32 +49,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	tmpl := `
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Login</title>
-	</head>
-	<body>
-		<h1>Login</h1>
-		<form method="POST" action="/">
-			<label>Email:</label>
-			<input type="text" name="email"><br>
-			<label>Password:</label>
-			<input type="password" name="password"><br>
-			<input type="submit" value="Login">
-		</form>
-	</body>
-	</html>
-	`
-
-	t, err := template.New("login").Parse(tmpl)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	t.Execute(w, nil)
+	helpers.ReadFileHTML(w, "pages/", "login.html", nil)
 }
 
 func profileHandler(w http.ResponseWriter, r *http.Request) {
@@ -85,26 +60,5 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl := `
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Profil</title>
-	</head>
-	<body>
-		<h1>Profil</h1>
-		<h2>name: {{.name}}</h2>
-		<h2>address: {{.address}}</h2>
-		<h2>phone: {{.phone}}</h2>
-	</body>
-	</html>
-	`
-
-	t, err := template.New("profile").Parse(tmpl)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	t.Execute(w, bio)
+	helpers.ReadFileHTML(w, "pages/", "profile.html", bio)
 }
