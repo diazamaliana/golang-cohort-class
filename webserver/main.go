@@ -1,16 +1,20 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"webserver/helpers"
 )
 
-// Data statis pengguna
-var users = map[string]string{
-	"john@example.com": "password123",
-	"jane@example.com": "secret456",
+// Struct User untuk merepresentasikan seorang pengguna
+type User struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }
+
+// Data statis pengguna
+var users []User
 
 // Data biodata pengguna
 var biodata = map[string]map[string]string{
@@ -27,6 +31,8 @@ var biodata = map[string]map[string]string{
 }
 
 func main() {
+	loadDataFromJSON("data/", "users.json")
+
 	http.HandleFunc("/", loginHandler)
 	http.HandleFunc("/profile", profileHandler)
 
@@ -34,24 +40,44 @@ func main() {
 	http.ListenAndServe(":9090", nil)
 }
 
+// loadDataFromJSON membaca data JSON dari sebuah file dan mengisi slice yang diberikan.
+func loadDataFromJSON(path, filename string) error {
+	// Baca file json menggunakan fungsi ReadFileJSON
+    jsonData, err := helpers.ReadFileJSON(path, filename)
+    if err != nil {
+        return fmt.Errorf("Error reading %s: %v", filename, err)
+    }
+
+	// Unmarshal data JSON ke dalam slice users atau biodata
+    if err := json.Unmarshal(jsonData, &users); err != nil {
+        return fmt.Errorf("Error unmarshaling %s: %v", filename, err)
+    }
+
+    return nil
+}
+
+// loginHandler menangani halaman login dan otentikasi.
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		email := r.FormValue("email")
 		password := r.FormValue("password")
 
 		// Periksa apakah email dan password cocok
-		if storedPassword, ok := users[email]; ok && storedPassword == password {
-			http.Redirect(w, r, "/profile?email="+email, http.StatusSeeOther)
-			return
-		} else {
-			fmt.Fprintln(w, "Login gagal. Email atau password salah.")
-			return
+		for _, user := range users {
+			if user.Email == email && user.Password == password {
+				http.Redirect(w, r, "/profile?email="+email, http.StatusSeeOther)
+				return
+			}
 		}
+
+		fmt.Fprintln(w, "Login gagal. Email atau password salah.")
+		return
 	}
 
 	helpers.ReadFileHTML(w, "pages/", "login.html", nil)
 }
 
+// profileHandler menangani halaman profil pengguna.
 func profileHandler(w http.ResponseWriter, r *http.Request) {
 	email := r.URL.Query().Get("email")
 	bio, ok := biodata[email]
