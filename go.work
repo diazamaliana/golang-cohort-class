@@ -4,4 +4,6 @@ use (
 	./calculate-word
 	./classmate-finder
 	./fizzbuzz-challenge
+	./goroutine-challenge
+	./webserver
 )
