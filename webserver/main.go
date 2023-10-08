@@ -13,47 +13,43 @@ type User struct {
 	Password string `json:"password"`
 }
 
-// Data statis pengguna
-var users []User
-
-// Data biodata pengguna
-var biodata = map[string]map[string]string{
-	"john@example.com": {
-		"name":    "John Doe",
-		"address":  "123 Jalan Contoh, Kota Contoh",
-		"phone": "123-456-7890",
-	},
-	"jane@example.com": {
-		"name":    "Jane Smith",
-		"address":  "456 Jalan Contoh, Kota Contoh",
-		"phone": "987-654-3210",
-	},
+type Biodata struct {
+	Email   string `json:"email"`
+	Name    string `json:"name"`
+	Address string `json:"address"`
+	Phone   string `json:"phone"`
+	Age     int    `json:"age"`
 }
 
+// Data statis pengguna
+var users []User
+var biodata []Biodata
+
 func main() {
-	loadDataFromJSON("data/", "users.json")
+	loadDataFromJSON("data/", "users.json", &users)
+	loadDataFromJSON("data/", "biodata.json", &biodata)
 
 	http.HandleFunc("/", loginHandler)
 	http.HandleFunc("/profile", profileHandler)
 
-    fmt.Println("Server berjalan di http://localhost:9090")
+	fmt.Println("Server berjalan di http://localhost:9090")
 	http.ListenAndServe(":9090", nil)
 }
 
 // loadDataFromJSON membaca data JSON dari sebuah file dan mengisi slice yang diberikan.
-func loadDataFromJSON(path, filename string) error {
+func loadDataFromJSON(path, filename string, data interface{}) error {
 	// Baca file json menggunakan fungsi ReadFileJSON
-    jsonData, err := helpers.ReadFileJSON(path, filename)
-    if err != nil {
-        return fmt.Errorf("Error reading %s: %v", filename, err)
-    }
+	jsonData, err := helpers.ReadFileJSON(path, filename)
+	if err != nil {
+		return fmt.Errorf("Error reading %s: %v", filename, err)
+	}
 
 	// Unmarshal data JSON ke dalam slice users atau biodata
-    if err := json.Unmarshal(jsonData, &users); err != nil {
+    if err := json.Unmarshal(jsonData, data); err != nil {
         return fmt.Errorf("Error unmarshaling %s: %v", filename, err)
     }
 
-    return nil
+	return nil
 }
 
 // loginHandler menangani halaman login dan otentikasi.
@@ -80,11 +76,20 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 // profileHandler menangani halaman profil pengguna.
 func profileHandler(w http.ResponseWriter, r *http.Request) {
 	email := r.URL.Query().Get("email")
-	bio, ok := biodata[email]
-	if !ok {
-		http.Error(w, "Email tidak ditemukan", http.StatusNotFound)
+	var userBio Biodata
+	found := false
+	for _, bio := range biodata {
+		if bio.Email == email {
+			userBio = bio
+			found = true
+			break
+		}
+	}
+
+	if !found {
+		http.Error(w, "Email not found", http.StatusNotFound)
 		return
 	}
 
-	helpers.ReadFileHTML(w, "pages/", "profile.html", bio)
+	helpers.ReadFileHTML(w, "pages/", "profile.html", userBio)
 }
