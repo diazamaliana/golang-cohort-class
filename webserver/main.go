@@ -19,6 +19,7 @@ type Biodata struct {
 	Address string `json:"address"`
 	Phone   string `json:"phone"`
 	Age     int    `json:"age"`
+	Occupation string `json:"occupation"`
 }
 
 // Data statis pengguna

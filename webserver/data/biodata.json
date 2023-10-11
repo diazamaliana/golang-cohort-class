@@ -4,34 +4,39 @@
     "name": "John Doe",
     "address": "123 Jalan Contoh, Kota Contoh",
     "phone": "123-456-7890",
-    "age": 30
+    "age": 30,
+    "occupation": "Software Engineer"
   },
   {
     "email": "jane@example.com",
     "name": "Jane Smith",
     "address": "456 Jalan Contoh, Kota Contoh",
     "phone": "987-654-3210",
-    "age": 25
+    "age": 25,
+    "occupation": "Marketing Manager"
   },
   {
     "email": "alice@example.com",
     "name": "Alice Johnson",
     "address": "789 Jalan Contoh, Kota Contoh",
     "phone": "555-555-5555",
-    "age": 35
+    "age": 35,
+    "occupation": "Doctor"
   },
   {
     "email": "bob@example.com",
     "name": "Bob Brown",
     "address": "987 Jalan Contoh, Kota Contoh",
     "phone": "111-222-3333",
-    "age": 28
+    "age": 28,
+    "occupation": "Teacher"
   },
   {
     "email": "eve@example.com",
     "name": "Eve Davis",
     "address": "567 Jalan Contoh, Kota Contoh",
     "phone": "999-888-7777",
-    "age": 22
+    "age": 22,
+    "occupation": "Student"
   }
 ]

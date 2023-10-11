@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />    <style>
+        body {
+          font-family: "Inter", sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <h1>Profil Pengguna</h1>
-    <h2>Nama: {{.Name}}</h2>
-	<h2>Alamat: {{.Address}}</h2>
-	<h2>Telepon: {{.Phone}}</h2>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="flex items-center h-screen w-full justify-center">
+
+    <div class="max-w-xs">
+        <div class="bg-white shadow-xl rounded-lg py-3">
+            <div class="photo-wrapper p-2">
+                <img class="w-32 h-32 rounded-full mx-auto" src="https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small/profile-icon-design-free-vector.jpg" alt="{{.Name}}">
+            </div>
+            <div class="p-2">
+                <h3 class="text-center text-xl text-gray-900 font-medium leading-8">{{.Name}}</h3>
+                <div class="text-center text-gray-400 text-xs font-semibold">
+                    <p>{{.Occupation}}</p>
+                </div>
+                <table class="text-xs my-3">
+                    <tbody>
+                        <tr>
+                            <td class="px-2 py-2 text-gray-500 font-semibold">Address</td>
+                            <td class="px-2 py-2">{{.Address}}</td>
+                        </tr>
+                    <tr>
+                        <td class="px-2 py-2 text-gray-500 font-semibold">Phone</td>
+                        <td class="px-2 py-2">{{.Phone}}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-2 py-2 text-gray-500 font-semibold">Email</td>
+                        <td class="px-2 py-2">{{.Email}}</td>
+                    </tr>
+                </tbody></table>
+    
+                <div class="text-center my-3">
+                    <a class="text-xs text-indigo-500 italic hover:underline hover:text-indigo-600 font-medium" href="#">View Profile</a>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+    </div>
 </body>
 </html>
