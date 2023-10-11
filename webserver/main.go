@@ -32,6 +32,7 @@ func main() {
 
 	http.HandleFunc("/", loginHandler)
 	http.HandleFunc("/profile", profileHandler)
+	http.HandleFunc("/list-email", listAccountHandler)
 
 	fmt.Println("Server berjalan di http://localhost:9090")
 	http.ListenAndServe(":9090", nil)
@@ -72,6 +73,11 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	helpers.ReadFileHTML(w, "pages/", "login.html", nil)
+}
+
+func listAccountHandler(w http.ResponseWriter, r *http.Request) {
+
+	helpers.ReadFileHTML(w, "pages/", "list-email.html", biodata)
 }
 
 // profileHandler menangani halaman profil pengguna.
