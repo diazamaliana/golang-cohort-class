@@ -15,6 +15,10 @@ func ConnectDB(connectionURL string) {
         panic("Failed to connect to database")
     }
 
+    // Configure GORM for soft deletes
+    db = db.Session(&gorm.Session{AllowGlobalUpdate: true}) // Allow soft delete on global update
+
+
     DB = db
     fmt.Println("Successfully connected to database")
 }
