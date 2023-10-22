@@ -11,8 +11,8 @@ func SetupRouter() *gin.Engine {
     router.POST("/orders", controllers.CreateOrder)
     router.GET("/orders", controllers.GetAllOrders)
     router.GET("/order/:id", controllers.GetOrderById)
-    // router.PUT("/orders/:id", controllers.UpdateOrder)
-    // router.DELETE("/orders/:id", controllers.DeleteOrder)
+    router.PUT("/orders/:id", controllers.UpdateOrder)
+    router.DELETE("/orders/:id", controllers.DeleteOrder)
 
     return router
 }
